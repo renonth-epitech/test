@@ -1,0 +1,49 @@
+@import './settings.scss';
+@import 'index.scss';
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin: 10px;
+    }
+
+    .submit {
+        @extend button;
+        width: 150px;
+    }
+
+    .section {
+        margin: 10px;
+        width: 50%;
+        padding: 10px;
+        border-radius: 15px;
+        border-color: $color;
+
+        .title {
+            padding: 10px;
+            color: $color;
+            border-radius: 10px;
+            border-bottom: 4px solid $color;
+        }
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .field_error {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        color: red;
+
+        input {
+            border-color: red;
+        }
+    }
+}

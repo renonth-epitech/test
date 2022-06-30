@@ -1,0 +1,25 @@
+@import "index.scss";
+
+.admin {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin: 20px;
+    }
+
+    .section {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .add_button {
+        margin: 20px;
+        font-size: larger;
+        font-weight: bold;
+        width: max-content;
+    }
+}

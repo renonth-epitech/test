@@ -1,0 +1,30 @@
+@import './settings.scss';
+
+.school {
+    width: max-content;
+    height: max-content;
+    margin: 20px;
+    border-color: $color;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+
+    .title {
+        padding: 10px;
+        background-color: $color ;
+        color: white;
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+
+    button {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .body {
+        list-style-type: none;
+        padding: 20px;
+    }
+}
