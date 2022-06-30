@@ -1,0 +1,95 @@
+[
+    {
+        "key": "student",
+        "value": {
+            "title": "Ajouter un élève",
+            "displayKey": "Nom",
+            "sections": [
+                {
+                    "name": "Identité",
+                    "fields": [
+                        {
+                            "name": "Nom",
+                            "type": "text",
+                            "mandatory": true
+                        }
+                    ]
+                },
+                {
+                    "name": "Informations",
+                    "fields": [
+                        {
+                            "name": "Adresse",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "name": "Date de naissance",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "name": "Téléphone",
+                            "type": "text",
+                            "mandatory": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Scolaire",
+                    "fields": [
+                        {
+                            "name": "Classe",
+                            "type": "text",
+                            "mandatory": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "key": "school",
+        "value": {
+            "title": "Ajouter un établissement",
+            "displayKey": "Nom",
+            "sections": [
+                {
+                    "name": "Intitulé",
+                    "fields": [
+                        {
+                            "name": "Nom",
+                            "type": "text",
+                            "mandatory": true
+                        }
+                    ]
+                },
+                {
+                    "name": "Informations",
+                    "fields": [
+                        {
+                            "name": "Adresse",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "name": "Téléphone",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "name": "Adresse mail",
+                            "type": "text",
+                            "mandatory": false
+                        },
+                        {
+                            "name": "Code UIA",
+                            "type": "text",
+                            "mandatory": false
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]
