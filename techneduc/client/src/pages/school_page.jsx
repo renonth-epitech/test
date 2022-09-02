@@ -1,4 +1,4 @@
-import Form from "./form";
+import Form from "../components/form";
 
 function SchoolPage() {
     const config = {
@@ -45,6 +45,12 @@ function SchoolPage() {
                         "technicalName": "uia",
                         "type": "text",
                         "mandatory": false
+                    },
+                    {
+                        "localizedName": "Antoning",
+                        "technicalName": "gg",
+                        "type": "text",
+                        "mandatory": true
                     }
                 ]
             }
