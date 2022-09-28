@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 
 import '../style/school.scss'
 
-function Student({ dto }) {
+function Class({ dto }) {
     const navigate = useNavigate();
 
     return <div className='school'>
         <div className='title'>
             {dto[dto.displayKey]}
         </div>
-        <button onClick={() => navigate('/student?id=' + dto.id, { state: { dto: dto } })}>Editer</button>
+        <button onClick={() => navigate('/class?id=' + dto.id, { state: { dto: dto } })}>Editer</button>
     </div>
 }
 
-export default Student;
+export default Class;

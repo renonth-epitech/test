@@ -1,0 +1,38 @@
+@import "./settings.scss";
+@import "index.scss";
+
+.lecture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin: 10px;
+    }
+
+    .definition {
+        margin: 10px;
+        width: 50%;
+        padding: 10px;
+        border-radius: 15px;
+        border-color: $color;
+        background-color: rgba($color, 0.1);
+
+        .title {
+            padding: 10px;
+            color: $color;
+            border-radius: 10px;
+            border-bottom: 4px solid $color;
+        }
+
+        p {
+            padding: 10px;
+            margin: 10px;
+            // background-color: rgba($color, 0.2);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

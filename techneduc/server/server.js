@@ -5,8 +5,6 @@ const bodyParser = require("body-parser");
 
 const PORT = 8080
 
-const config_form = require('./form.json')
-
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
@@ -18,13 +16,16 @@ app.listen(PORT, () => {
 })
 
 // require param 'key'
-app.get("/form", (req, res) => {
-    res.send(config_form.find((f) => f.key === req.query.key).value)
+app.get('/entity', (req, res) => {
+    if (req.query.id !== null && db[req.query.key]?.some((e) => e.id === req.query.id)) {
+        res.send(db[req.query.key].find(e => req.query.id === e.id))
+        return
+    }
+    res.send(db[req.query.key] ?? [])
 })
 
-// require param 'key'
-app.get('/entity', (req, res) => {
-    res.send(db[req.query.key] ?? [])
+app.get('/lecture', (req, res) => {
+    res.send({})
 })
 
 // require param 'key'
@@ -32,15 +33,14 @@ app.post("/add", (req, res) => {
     if (db[req.query.key] == null)
         db[req.query.key] = []
 
-    if (req.body.id != null && db[req.query.key].some((e) => e.id == req.body.id)) {
-        let index = db[req.query.key].findIndex((e) => e.id == req.body.id)
+    if (req.body.id != null && db[req.query.key].some((e) => e.id === req.body.id)) {
+        let index = db[req.query.key].findIndex((e) => e.id === req.body.id)
         db[req.query.key].splice(index, 1)
     }
 
     db[req.query.key].push({
         ...req.body,
-        'id': req.query.id ?? uuid.v4(),
-        "displayKey": config_form.find((f) => f.key === req.query.key).value.displayKey
+        'id': req.query.id ?? uuid.v4()
     })
 
     res.send("OK")

@@ -1,62 +1,73 @@
+import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 import Form from "../components/form";
 
 function SchoolPage() {
+    const [searchParams, setSearchParams] = useSearchParams()
     const config = {
         "title": "Ajouter un établissement",
         "displayKey": "name",
         "sections": [
             {
 
-                "localizedName": "Intitulé",
-                "technicalName": "title",
+                "name": "Intitulé",
+                "key": "title",
                 "fields": [
                     {
-                        "localizedName": "Nom",
-                        "technicalName": "name",
+                        "name": "Nom",
+                        "key": "name",
                         "type": "text",
                         "mandatory": true
                     }
                 ]
             },
             {
-                "localizedName": "Informations",
-                "technicalName": "informations",
+                "name": "Informations",
+                "key": "informations",
                 "fields": [
                     {
-                        "localizedName": "Adresse",
-                        "technicalName": "address",
+                        "name": "Adresse",
+                        "key": "address",
                         "type": "text",
                         "mandatory": true
                     },
                     {
-                        "localizedName": "Téléphone",
-                        "technicalName": "phone",
+                        "name": "Téléphone",
+                        "key": "phone",
                         "type": "text",
                         "mandatory": true
                     },
                     {
-                        "localizedName": "Adresse mail",
-                        "technicalName": "mail",
+                        "name": "Adresse mail",
+                        "key": "mail",
                         "type": "text",
                         "mandatory": false
                     },
                     {
-                        "localizedName": "Code UIA",
-                        "technicalName": "uia",
+                        "name": "Code UIA",
+                        "key": "uia",
                         "type": "text",
                         "mandatory": false
                     },
                     {
-                        "localizedName": "Antoning",
-                        "technicalName": "gg",
+                        "name": "Mail",
+                        "key": "mail",
                         "type": "text",
-                        "mandatory": true
+                        "mandatory": false
                     }
                 ]
             }
         ]
     }
-    return <Form config={config} />
+    async function handleSubmit(values) {
+        return await axios.post(`http://localhost:8080/add?key=school`, values)
+    }
+
+    function getInitialValues() {
+        return axios.get(`http://localhost:8080/entity?key=school&id=` + searchParams.get("id"))
+    }
+
+    return <Form config={config} onSubmit={handleSubmit} initialValues={getInitialValues} />
 }
 
 export default SchoolPage;

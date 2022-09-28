@@ -3,10 +3,17 @@ import React from 'react';
 import '../style/header.scss'
 
 const Header = () =>
-    <a href="/">
-        <div className='header'>
-            <h1 >Techneduc</h1>
+    <div className='header'>
+        <h1 >
+            <a href="/lecture">
+                Techneduc
+            </a>
+        </h1>
+        <div className='administration'>
+            <a href="/admin">
+                Administration
+            </a>
         </div>
-    </a>
+    </div >
 
 export default Header;
