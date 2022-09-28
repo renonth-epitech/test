@@ -4,18 +4,12 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/header";
 
 function LoginPage() {
-
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const container = useRef(null);
+  const [email, setEmail] = useState("")
+
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-
   }
 
   useEffect(() => {
@@ -23,6 +17,10 @@ function LoginPage() {
 
   return (<>
     <Header />
+    <input name='email' value={email ?? ""}
+      onChange={e => { setEmail(e.target.value) }} />
+    <input name='password' type='password' value={email ?? ""}
+      onChange={e => { setEmail(e.target.value) }} />
   </>
   );
 }
