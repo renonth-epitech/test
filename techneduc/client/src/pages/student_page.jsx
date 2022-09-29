@@ -2,7 +2,7 @@ import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import Form from "../components/form";
 
-function StudentPage() {
+export default function StudentPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     const config = {
         "title": "Ajouter un élève",
@@ -58,6 +58,7 @@ function StudentPage() {
             }
         ]
     }
+
     async function handleSubmit(values) {
         return await axios.post(`http://localhost:8080/add?key=student`, values)
     }
@@ -68,5 +69,3 @@ function StudentPage() {
 
     return <Form config={config} onSubmit={handleSubmit} initialValues={getInitialValues} />
 }
-
-export default StudentPage;

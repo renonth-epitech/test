@@ -3,14 +3,13 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import axios from 'axios'
 
-import Header from '../components/header';
 import School from '../components/school';
 import Student from '../components/student';
 
 import '../style/admin.scss'
 import Class from "../components/class";
 
-function AdminPage() {
+export default function AdminPage() {
     const navigate = useNavigate();
     const [schools, setSchools] = useState()
     const [students, setStudents] = useState()
@@ -33,8 +32,7 @@ function AdminPage() {
         fetchData()
     }, [])
 
-    return <>
-        <Header />
+    return (
         <div className='admin'>
             <h1>Établissements</h1>
             <div className='section'>
@@ -52,7 +50,5 @@ function AdminPage() {
                 <button className="add_button" onClick={() => navigate('/class')}>Ajouter une classe</button>
             </div>
         </div>
-    </>
-};
-
-export default AdminPage;
+    )
+}

@@ -2,14 +2,13 @@ import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import Form from "../components/form";
 
-function ClassPage() {
+export default function ClassPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     const config = {
         "title": "Ajouter une classe",
         "displayKey": "field_title",
         "sections": [
             {
-
                 "name": "Informations",
                 "key": "section_informations",
                 "fields": [
@@ -50,5 +49,3 @@ function ClassPage() {
 
     return <Form config={config} onSubmit={handleSubmit} initialValues={getInitialValues} />
 }
-
-export default ClassPage;

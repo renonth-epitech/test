@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/header";
+import * as style from "../style/style";
 
-function LoginPage() {
+export default function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
 
   async function handleSubmit(e) {
@@ -15,15 +16,18 @@ function LoginPage() {
   useEffect(() => {
   }, []);
 
-  return (<>
-    <Header />
-    <input name='email' value={email ?? ""}
-      onChange={e => { setEmail(e.target.value) }} />
-    <input name='password' type='password' value={email ?? ""}
-      onChange={e => { setEmail(e.target.value) }} />
-  </>
-  );
+
+  return (
+    <div style={{ ...style.column(), ...style.paddingSymmetric({ horizontal: 100 }), ...style.alignLeft }}>
+      <div style={{ ...style.row, ...style.alignCenter, ...style.backgroundColor('red') }}>
+        <span>Hello</span>
+        <span>World</span>
+      </div>
+      <input name='email' value={email ?? ""}
+        onChange={e => { setEmail(e.target.value) }} />
+      <input name='password' type='password' value={password ?? ""}
+        onChange={e => { setPassword(e.target.value) }} />
+      <button >Login</ button >
+    </div >
+  )
 }
-
-
-export default LoginPage;

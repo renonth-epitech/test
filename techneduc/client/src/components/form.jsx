@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
-
-import Header from "./header"
+import { useNavigate } from "react-router-dom"
 
 import '../style/form.scss'
 
@@ -69,8 +67,7 @@ function Form({ config, onSubmit, initialValues }) {
         }
     }
 
-    return <>
-        <Header />
+    return (
         <form className="form" onSubmit={handleSubmit}>
             <h1>{config.title}</h1>
             {config.sections.map((section) =>
@@ -88,8 +85,7 @@ function Form({ config, onSubmit, initialValues }) {
             )}
             <input className='submit' type="submit" value="Enregistrer" />
         </form>
-    </>
-
+    )
 }
 
 export default Form;

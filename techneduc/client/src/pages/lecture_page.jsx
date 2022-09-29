@@ -1,9 +1,7 @@
-import Header from "../components/header"
 import '../style/lecture.scss'
 import ReactTooltip from 'react-tooltip'
 
-
-function LecturePage() {
+export default function LecturePage() {
     const config = {
         "chapter": "Manipuler les nombres entiers",
         "title": "Division",
@@ -105,23 +103,22 @@ function LecturePage() {
         return word
     }
 
-    return <>
-        <Header />
-        <ReactTooltip />
-        <div className="lecture">
-            <h1>{config.title}</h1>
-            {config.definitions.map((definition) =>
-                <div className="definition" >
-                    <div className="title">
-                        <h2>{definition.name}</h2>
+    return (
+        <>
+            <ReactTooltip />
+            <div className="lecture">
+                <h1>{config.title}</h1>
+                {config.definitions.map((definition) =>
+                    <div className="definition" >
+                        <div className="title">
+                            <h2>{definition.name}</h2>
+                        </div>
+                        <p>{definition.content.split(' ').map(word => {
+                            return keyword(word)
+                        })}</p>
                     </div>
-                    <p>{definition.content.split(' ').map(word => {
-                        return keyword(word)
-                    })}</p>
-                </div>
-            )}
-        </div>
-    </>
+                )}
+            </div>
+        </>
+    )
 }
-
-export default LecturePage;

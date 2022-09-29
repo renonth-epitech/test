@@ -2,7 +2,7 @@ import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import Form from "../components/form";
 
-function SchoolPage() {
+export default function SchoolPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     const config = {
         "title": "Ajouter un établissement",
@@ -59,6 +59,7 @@ function SchoolPage() {
             }
         ]
     }
+
     async function handleSubmit(values) {
         return await axios.post(`http://localhost:8080/add?key=school`, values)
     }
@@ -69,5 +70,3 @@ function SchoolPage() {
 
     return <Form config={config} onSubmit={handleSubmit} initialValues={getInitialValues} />
 }
-
-export default SchoolPage;
