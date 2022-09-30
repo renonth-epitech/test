@@ -1,32 +1,53 @@
+export default function style({ column, row, padding, paddingAll, paddingSymmetric, backgroundColor, color, align }) {
+    var stl = {}
+
+    if (column != null)
+        stl = { ...stl, ..._column(column) }
+    if (row != null)
+        stl = { ...stl, ..._row(row) }
+    if (padding != null)
+        stl = { ...stl, ..._padding(padding) }
+    if (paddingAll != null)
+        stl = { ...stl, ..._paddingAll(padding) }
+    if (paddingSymmetric != null)
+        stl = { ...stl, ..._paddingSymmetric(paddingSymmetric) }
+    if (backgroundColor != null)
+        stl = { ...stl, ..._backgroundColor(backgroundColor) }
+    if (color != null)
+        stl = { ...stl, ..._color(color) }
+    if (align != null)
+        stl = { ...stl, ..._align(align) }
+
+    return stl
+}
+
 // Alignment
 
-export function column({ mainAxisAlignment = "stretch", crossAxisAlignment = "stretch" }) {
+function _align(alignment) {
+    return { "textAlign": alignment }
+}
+
+function _column({ mainAxisAlignment = "start", crossAxisAlignment = "start" }) {
     return {
         display: "flex",
         flexDirection: "column",
-        justifyItems: mainAxisAlignment, // stretch, center, start, end
+        justifyContent: mainAxisAlignment,
         alignItems: crossAxisAlignment
     }
 }
 
-export function row({ mainAxisAlignment = "stretch", crossAxisAlignment = "stretch" }) {
+function _row({ mainAxisAlignment = "start", crossAxisAlignment = "start" }) {
     return {
         display: "flex",
         flexDirection: "row",
-        justifyItems: mainAxisAlignment, // stretch, center, start, end
+        justifyContent: mainAxisAlignment,
         alignItems: crossAxisAlignment
     }
 }
 
-export const alignCenter = { textAlign: "center" }
-
-export const alignRight = { textAlign: "right" }
-
-export const alignLeft = { textAlign: "left" }
-
 // Padding
 
-export function padding({ top = 0, bottom = 0, left = 0, right = 0 }) {
+function _padding({ top = 0, bottom = 0, left = 0, right = 0 }) {
     return {
         paddingTop: top,
         paddingBottom: bottom,
@@ -35,7 +56,7 @@ export function padding({ top = 0, bottom = 0, left = 0, right = 0 }) {
     }
 }
 
-export function paddingAll(pad) {
+function _paddingAll(pad) {
     return {
         paddingTop: pad,
         paddingBottom: pad,
@@ -44,7 +65,7 @@ export function paddingAll(pad) {
     }
 }
 
-export function paddingSymmetric({ vertical = 0, horizontal = 0 }) {
+function _paddingSymmetric({ vertical = 0, horizontal = 0 }) {
     return {
         paddingTop: vertical,
         paddingBottom: vertical,
@@ -55,10 +76,10 @@ export function paddingSymmetric({ vertical = 0, horizontal = 0 }) {
 
 // Color
 
-export function backgroundColor(c) {
+function _backgroundColor(c) {
     return { backgroundColor: c }
 }
 
-export function color(c) {
+function _color(c) {
     return { color: c }
 }
