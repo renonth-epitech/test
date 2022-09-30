@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import axios from 'axios'
 
@@ -10,7 +10,7 @@ import '../style/admin.scss'
 import Class from "../components/class";
 
 export default function AdminPage() {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const [schools, setSchools] = useState()
     const [students, setStudents] = useState()
     const [classes, setClasses] = useState()

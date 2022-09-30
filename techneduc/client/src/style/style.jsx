@@ -1,4 +1,4 @@
-export default function style({ column, row, padding, paddingAll, paddingSymmetric, backgroundColor, color, align }) {
+export default function style({ column, row, padding, paddingAll, paddingSymmetric, backgroundColor, color, alignText, alignSelf }) {
     var stl = {}
 
     if (column != null)
@@ -15,33 +15,42 @@ export default function style({ column, row, padding, paddingAll, paddingSymmetr
         stl = { ...stl, ..._backgroundColor(backgroundColor) }
     if (color != null)
         stl = { ...stl, ..._color(color) }
-    if (align != null)
-        stl = { ...stl, ..._align(align) }
-
+    if (alignText != null)
+        stl = { ...stl, ..._alignText(alignText) }
+    if (alignSelf != null)
+        stl = { ...stl, ..._alignSelf(alignSelf) }
     return stl
 }
 
 // Alignment
 
-function _align(alignment) {
+function _alignText(alignment) {
     return { "textAlign": alignment }
 }
 
-function _column({ mainAxisAlignment = "start", crossAxisAlignment = "start" }) {
+function _alignSelf(alignment) {
+    return { "alignSelf": alignment }
+}
+
+function _column({ mainAxisAlignment = "stretch", crossAxisAlignment = "stretch" }) {
     return {
         display: "flex",
         flexDirection: "column",
+        flexGrow: 1,
         justifyContent: mainAxisAlignment,
-        alignItems: crossAxisAlignment
+        alignItems: crossAxisAlignment,
+        justifyItems: "stretch"
     }
 }
 
-function _row({ mainAxisAlignment = "start", crossAxisAlignment = "start" }) {
+function _row({ mainAxisAlignment = "stretch", crossAxisAlignment = "stretch" }) {
     return {
         display: "flex",
         flexDirection: "row",
+        flexGrow: 1,
         justifyContent: mainAxisAlignment,
-        alignItems: crossAxisAlignment
+        alignItems: crossAxisAlignment,
+        justifyItems: "stretch"
     }
 }
 

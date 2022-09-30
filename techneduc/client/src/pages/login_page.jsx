@@ -18,12 +18,12 @@ export default function LoginPage() {
 
 
   return (
-    <div style={style({ column: {}, paddingSymmetric: { horizontal: 100 }, align: "left" })}>
+    <div style={style({ column: {}, paddingSymmetric: { horizontal: 200 } })}>
       <input name='email' value={email ?? ""}
         onChange={e => { setEmail(e.target.value) }} />
       <input name='password' type='password' value={password ?? ""}
         onChange={e => { setPassword(e.target.value) }} />
-      <button >Login</ button >
-    </div >
+      <button onClick={() => { navigate("/admin") }}>Login</ button >
+    </div>
   )
 }
