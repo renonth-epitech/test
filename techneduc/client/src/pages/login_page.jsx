@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import style from "../style/style";
+import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import style from "../style/style"
+import '../style/card.scss'
+import img from '../img/img.jpeg'
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -11,19 +13,30 @@ export default function LoginPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    localStorage.setItem("loggedIn", true)
+    navigate("/admin")
   }
 
   useEffect(() => {
   }, []);
 
+  localStorage.setItem("loggedIn", false)
 
   return (
-    <div style={style({ column: {}, paddingSymmetric: { horizontal: 200 } })}>
-      <input name='email' value={email ?? ""}
-        onChange={e => { setEmail(e.target.value) }} />
-      <input name='password' type='password' value={password ?? ""}
-        onChange={e => { setPassword(e.target.value) }} />
-      <button onClick={() => { navigate("/admin") }}>Login</ button >
-    </div>
+    <div style={{ display: "grid" }}>
+      <div style={{ gridColumn: "1/3", gridRow: "1", backgroundImage: 'url(https://wallpaper.dog/large/20526621.jpg)' }} />
+      <div style={{ gridColumn: "1/1", gridRow: "1", ...style({ padding: { left: 150, right: 950, top: 100, bottom: 200 } }) }}>
+        <div className="card" style={style({ column: {}, padding: { left: 50, right: 50, top: 100, bottom: 200 } })}>
+          <div style={style({ alignText: "center", padding: { bottom: 20 } })}><h2>Connexion</h2></div>
+          <input name='email' value={email ?? ""} placeholder="Adresse email"
+            onChange={e => { setEmail(e.target.value) }} />
+          <div style={{ ...style({ paddingSymmetric: { "vertical": 5 } }) }} />
+          <input name='password' type='password' value={password ?? ""} placeholder="Mot de passe"
+            onChange={e => { setPassword(e.target.value) }} />
+          <div style={{ ...style({ paddingSymmetric: { "vertical": 20 } }) }} />
+          <button onClick={handleSubmit}>Se connecter</button>
+        </div>
+      </div>
+    </div >
   )
 }

@@ -8,7 +8,7 @@ export default function style({ column, row, padding, paddingAll, paddingSymmetr
     if (padding != null)
         stl = { ...stl, ..._padding(padding) }
     if (paddingAll != null)
-        stl = { ...stl, ..._paddingAll(padding) }
+        stl = { ...stl, ..._paddingAll(paddingAll) }
     if (paddingSymmetric != null)
         stl = { ...stl, ..._paddingSymmetric(paddingSymmetric) }
     if (backgroundColor != null)
@@ -66,12 +66,7 @@ function _padding({ top = 0, bottom = 0, left = 0, right = 0 }) {
 }
 
 function _paddingAll(pad) {
-    return {
-        paddingTop: pad,
-        paddingBottom: pad,
-        paddingLeft: pad,
-        paddingRight: pad
-    }
+    return { padding: pad }
 }
 
 function _paddingSymmetric({ vertical = 0, horizontal = 0 }) {

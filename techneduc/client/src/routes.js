@@ -8,6 +8,7 @@ import LecturePage from './pages/lecture_page';
 import Header from './components/header';
 import Layout from './components/layout';
 import ProfilePage from './pages/profile_page';
+import LecturesPage from './pages/lectures_page';
 
 function AppRoutes() {
     return (
@@ -18,11 +19,12 @@ function AppRoutes() {
                 <Route path="school" element={<SchoolPage />} />
                 <Route path="student" element={<StudentPage />} />
                 <Route path="lecture" element={<LecturePage />} />
+                <Route path="lectures" element={<LecturesPage />} />
                 <Route path="class" element={<ClassPage />} />
+                <Route path="profile" element={<ProfilePage />} />
                 <Route path="login" element={<LoginPage />} />
                 <Route path="test" element={<Layout />} />
-                <Route path="profile" element={<ProfilePage />} />
-                <Route path="*" element={<Navigate to="/lecture" />} />
+                <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
         </BrowserRouter>
     )

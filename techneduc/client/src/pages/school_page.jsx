@@ -48,12 +48,6 @@ export default function SchoolPage() {
                         "key": "uia",
                         "type": "text",
                         "mandatory": false
-                    },
-                    {
-                        "name": "Mail",
-                        "key": "mail",
-                        "type": "text",
-                        "mandatory": false
                     }
                 ]
             }

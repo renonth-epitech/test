@@ -1,0 +1,14 @@
+@import "index.scss";
+
+.lectures {
+    a {
+        text-decoration: none;
+    }
+
+    h3 {
+        background-color: $color;
+        border-radius: 15px;
+        color: white;
+        padding: 10px;
+    }
+}

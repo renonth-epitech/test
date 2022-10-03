@@ -7,7 +7,7 @@ function School({ dto }) {
 
     return <div className='school'>
         <div className='title'>
-            {dto[dto.displayKey]}
+            {dto.name}
         </div>
         <button onClick={() => navigate('/school?id=' + dto.id, { state: { dto: dto } })}>Editer</button>
     </div>
