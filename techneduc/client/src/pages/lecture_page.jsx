@@ -1,5 +1,6 @@
 import '../style/lecture.scss'
 import ReactTooltip from 'react-tooltip'
+import Header from '../components/header'
 
 export default function LecturePage() {
     const config = {
@@ -105,6 +106,7 @@ export default function LecturePage() {
 
     return (
         <>
+            <Header />
             <ReactTooltip />
             <div className="lecture">
                 <h1>{config.title}</h1>

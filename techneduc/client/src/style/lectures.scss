@@ -6,9 +6,9 @@
     }
 
     h3 {
-        background-color: $color;
+        background-color: $theme_primary;
         border-radius: 15px;
-        color: white;
+        color: $theme_light;
         padding: 10px;
     }
 }

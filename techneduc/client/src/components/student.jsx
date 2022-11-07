@@ -7,9 +7,9 @@ function Student({ dto }) {
 
     return <div className='school'>
         <div className='title'>
-            {dto[dto.displayKey]}
+            {dto.o.name}
         </div>
-        <button onClick={() => navigate('/student?id=' + dto.id, { state: { dto: dto } })}>Editer</button>
+        <button onClick={() => navigate('/student?id=' + dto._id, { state: { dto: dto } })}>Editer</button>
     </div>
 }
 

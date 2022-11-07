@@ -1,14 +1,14 @@
 @import "./settings.scss";
 
 .header {
-    background-color: $color;
+    background-color: $theme_primary;
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: white;
+    color: $theme_light;
 
     a {
-        color: white;
+        color: $theme_light;
         text-decoration: none;
     }
 }

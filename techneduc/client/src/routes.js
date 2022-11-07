@@ -5,17 +5,17 @@ import SchoolPage from './pages/school_page';
 import StudentPage from './pages/student_page';
 import LoginPage from './pages/login_page';
 import LecturePage from './pages/lecture_page';
-import Header from './components/header';
 import Layout from './components/layout';
 import ProfilePage from './pages/profile_page';
 import LecturesPage from './pages/lectures_page';
+import DashboardPage from './pages/dashboard';
 
 function AppRoutes() {
     return (
         <BrowserRouter>
-            <Header />
             <Routes>
                 <Route path="admin" element={<AdminPage />} />
+                <Route path="dashboard" element={<DashboardPage />} />
                 <Route path="school" element={<SchoolPage />} />
                 <Route path="student" element={<StudentPage />} />
                 <Route path="lecture" element={<LecturePage />} />

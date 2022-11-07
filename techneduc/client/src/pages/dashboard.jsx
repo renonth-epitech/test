@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../components/header';
 
-function ProfilePage() {
+function DashboardPage() {
     return (
         <><Header />
             <div>
-                Profile
+                Dashboard
             </div>
         </>
     );
 }
 
-export default ProfilePage;
+export default DashboardPage;

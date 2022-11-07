@@ -10,23 +10,27 @@ import '../style/admin.scss'
 import Class from "../components/class";
 import Header from "../components/header";
 import style from "../style/style";
+import { SERVER_URL } from "../global/endpoint";
+
+import { AiFillSetting } from 'react-icons/ai'
 
 export default function AdminPage() {
     const navigate = useNavigate()
-    const [schools, setSchools] = useState()
+    const [school, setSchool] = useState()
     const [students, setStudents] = useState()
     const [classes, setClasses] = useState()
 
     async function fetchData() {
-        let res = await axios.get(`http://localhost:8080/entity?key=school`)
+
+        let res = await axios.get(`${SERVER_URL}/schools`)
         if (res.status === 200)
-            setSchools(res.data)
-        res = await axios.get(`http://localhost:8080/entity?key=student`)
-        if (res.status === 200)
-            setStudents(res.data)
-        res = await axios.get(`http://localhost:8080/entity?key=class`)
+            setSchool(res.data[0])
+        res = await axios.get(`${SERVER_URL}/classes`)
         if (res.status === 200)
             setClasses(res.data)
+        res = await axios.get(`${SERVER_URL}/users`)
+        if (res.status === 200)
+            setStudents(res.data)
 
     }
 
@@ -34,23 +38,23 @@ export default function AdminPage() {
         fetchData()
     }, [])
 
-    return (
+    return (<><Header />
         <div className='admin' style={style({ column: { crossAxisAlignment: "center" } })}>
-            <h2>Établissements</h2>
-            <div className='section' style={style({ row: { crossAxisAlignment: "center" } })}>
-                {schools?.map((s) => <School dto={s} key={uuidv4()} />)}
-                <button className="add_button" onClick={() => navigate('/school')}>Ajouter un établissement</button>
+            <div style={style({ row: {} })}>
+                <h2>{school?.o.name + ', ' + school?.o.city}</h2>
+                <button className="add_button" onClick={() => navigate('/school?id=' + school._id, { state: { dto: school } })}><AiFillSetting /></button>
             </div>
             <h2>Élèves</h2>
             <div className='section' style={style({ row: { crossAxisAlignment: "center" } })}>
-                {students?.map((s) => <Student dto={s} key={uuidv4()} />)}
-                <button className="add_button" onClick={() => navigate('/student')}>Ajouter un élève</button>
+                {students?.filter((s) => s.o.name != "admin").map((s) => <Student dto={s} key={uuidv4()} />)}
+                {/* <button className="add_button" onClick={() => navigate('/student')}>Ajouter un élève</button> */}
             </div>
             <h2>Classes</h2>
             <div className='section' style={style({ row: { crossAxisAlignment: "center" } })}>
                 {classes?.map((s) => <Class dto={s} key={uuidv4()} />)}
-                <button className="add_button" onClick={() => navigate('/class')}>Ajouter une classe</button>
+                {/* <button className="add_button" onClick={() => navigate('/class')}>Ajouter une classe</button> */}
             </div>
         </div >
+    </>
     )
 }

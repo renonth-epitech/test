@@ -4,15 +4,15 @@
     width: max-content;
     height: max-content;
     margin: 20px;
-    border-color: $color;
+    border-color: $theme_primary;
     border-radius: 5px;
     border-width: 2px;
     border-style: solid;
 
     .title {
         padding: 10px;
-        background-color: $color ;
-        color: white;
+        background-color: $theme_primary ;
+        color: $theme_light;
         font-weight: bold;
         justify-content: center;
         display: flex;

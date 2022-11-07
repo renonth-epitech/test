@@ -20,13 +20,13 @@
         width: 50%;
         padding: 10px;
         border-radius: 15px;
-        border-color: $color;
+        border-color: $theme_primary;
 
         .title {
             padding: 10px;
-            color: $color;
+            color: $theme_primary;
             border-radius: 10px;
-            border-bottom: 4px solid $color;
+            border-bottom: 4px solid $theme_primary;
         }
     }
 

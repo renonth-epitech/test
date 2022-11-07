@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../components/header';
 
-function ProfilePage() {
+function MessagePage() {
     return (
         <><Header />
             <div>
-                Profile
+                Message
             </div>
         </>
     );
 }
 
-export default ProfilePage;
+export default MessagePage;

@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../components/header';
 
-function ProfilePage() {
+function CalendarPage() {
     return (
         <><Header />
             <div>
-                Profile
+                Calender
             </div>
         </>
     );
 }
 
-export default ProfilePage;
+export default CalendarPage;

@@ -5,8 +5,8 @@
     margin: 0;
 
     button {
-        background-color: $color;
-        color: white;
+        background-color: $theme_primary;
+        color: $theme_light;
         border: none;
         border-radius: 5px;
         font-size: medium;
@@ -19,11 +19,12 @@
     }
 
     input {
-        border-color: black;
-        margin: 5px;
-        padding: 7px;
-        border-width: 1px;
-        border-radius: 3px;
+        background-color: $theme_light;
+        margin: 0px;
+        padding: 10px;
+        padding-left: 20px;
+        border: none;
+        border-radius: 20px;
         border-bottom-width: 2px;
     }
 }
